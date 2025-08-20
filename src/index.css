@@ -1,0 +1,67 @@
+@import 'react-toastify/dist/ReactToastify.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+  
+  body {
+    @apply font-sans antialiased bg-gray-50 text-gray-900;
+  }
+}
+
+@layer components {
+  .toast-container {
+    @apply !text-sm !font-medium;
+  }
+  
+  .toast-container .Toastify__toast {
+    @apply !bg-white !text-gray-800 !border !border-gray-200 !shadow-lg !rounded-lg !min-h-0 !py-3 !px-4;
+  }
+  
+  .toast-container .Toastify__toast--success {
+    @apply !border-accent-200 !bg-accent-50;
+  }
+  
+  .toast-container .Toastify__toast--error {
+    @apply !border-red-200 !bg-red-50;
+  }
+  
+  .toast-container .Toastify__toast--warning {
+    @apply !border-yellow-200 !bg-yellow-50;
+  }
+  
+  .toast-container .Toastify__progress-bar {
+    @apply !bg-primary-500;
+  }
+  
+  .toast-container .Toastify__close-button {
+    @apply !text-gray-400 hover:!text-gray-600;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .task-card-hover {
+    @apply transform transition-all duration-150 ease-out hover:scale-[1.02] hover:shadow-md;
+  }
+  
+  .checkbox-bounce {
+    @apply transform transition-all duration-200 ease-out;
+  }
+  
+  .checkbox-bounce:checked {
+    animation: bounceIn 0.3s ease-out;
+  }
+}
