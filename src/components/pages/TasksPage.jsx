@@ -43,7 +43,7 @@ const TasksPage = () => {
     }
     
     if (categoryId) {
-      const category = categories.find(cat => cat.Id === parseInt(categoryId))
+const category = categories.find(cat => cat.Id === parseInt(categoryId))
       return {
         title: category ? `${category.name} Tasks` : "Category Tasks",
         description: category ? `Tasks in the ${category.name} category` : "Tasks in this category",
@@ -92,7 +92,7 @@ const TasksPage = () => {
     }
     
     if (categoryId) {
-      const category = categories.find(cat => cat.Id === parseInt(categoryId))
+const category = categories.find(cat => cat.Id === parseInt(categoryId))
       return category ? `No tasks in ${category.name} category yet.` : "No tasks in this category yet."
     }
     

@@ -17,14 +17,14 @@ const TaskCard = ({ task }) => {
   const dispatch = useDispatch()
   const categories = useSelector(state => state.categories.categories)
   
-  const category = categories.find(cat => cat.Id === task.categoryId)
+const category = categories.find(cat => cat.Id === task.categoryId)
   const dueStatus = getDueDateStatus(task.dueDate)
   
   const handleToggleComplete = async (e) => {
     e.stopPropagation()
     
     try {
-      await tasksService.toggleComplete(task.Id)
+await tasksService.toggleComplete(task.Id)
       dispatch(toggleTaskComplete(task.Id))
       
       if (!task.completed) {

@@ -33,7 +33,7 @@ const TaskModal = () => {
       setFormData({
         title: editingTask.title || "",
         description: editingTask.description || "",
-        categoryId: editingTask.categoryId?.toString() || "",
+categoryId: editingTask.categoryId?.toString() || "",
         priority: editingTask.priority || "medium",
         dueDate: editingTask.dueDate ? 
           new Date(editingTask.dueDate).toISOString().slice(0, 16) : ""
@@ -42,7 +42,7 @@ const TaskModal = () => {
       setFormData({
         title: "",
         description: "",
-        categoryId: categories.length > 0 ? categories[0].Id.toString() : "",
+categoryId: categories.length > 0 ? categories[0].Id.toString() : "",
         priority: "medium",
         dueDate: ""
       })
@@ -89,11 +89,11 @@ const TaskModal = () => {
       }
 
       if (editingTask) {
-        const updatedTask = await tasksService.update(editingTask.Id, taskData)
+const updatedTask = await tasksService.update(editingTask.Id, taskData)
         dispatch(updateTask(updatedTask))
         toast.success("Task updated successfully!")
       } else {
-        const newTask = await tasksService.create(taskData)
+const newTask = await tasksService.create(taskData)
         dispatch(addTask(newTask))
         toast.success("Task created successfully!")
       }
@@ -115,7 +115,7 @@ const TaskModal = () => {
     setIsSubmitting(true)
     
     try {
-      await tasksService.delete(editingTask.Id)
+await tasksService.delete(editingTask.Id)
       dispatch(deleteTask(editingTask.Id))
       dispatch(closeTaskModal())
       toast.success("Task deleted successfully!")
@@ -191,7 +191,7 @@ const TaskModal = () => {
                   disabled={isSubmitting}
                 >
                   <option value="">Select category</option>
-                  {categories.map(category => (
+{categories.map(category => (
                     <option key={category.Id} value={category.Id}>
                       {category.name}
                     </option>

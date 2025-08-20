@@ -1,18 +1,24 @@
-import React from "react"
+import React, { useContext } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import ApperIcon from "@/components/ApperIcon"
 import Button from "@/components/atoms/Button"
 import SearchBar from "@/components/molecules/SearchBar"
 import { toggleSidebar, openTaskModal } from "@/store/slices/uiSlice"
-
+import { AuthContext } from "@/App"
 const Header = ({ title, description }) => {
   const dispatch = useDispatch()
+  const { logout } = useContext(AuthContext)
   const tasks = useSelector(state => state.tasks.tasks)
+  const user = useSelector(state => state.user.user)
   const completedTasks = tasks.filter(task => task.completed)
   const completionRate = tasks.length > 0 ? Math.round((completedTasks.length / tasks.length) * 100) : 0
 
   const handleCreateTask = () => {
     dispatch(openTaskModal())
+  }
+
+  const handleLogout = () => {
+    logout()
   }
 
   return (
@@ -36,7 +42,7 @@ const Header = ({ title, description }) => {
           </div>
         </div>
 
-        <div className="hidden md:flex items-center gap-4">
+<div className="hidden md:flex items-center gap-4">
           {tasks.length > 0 && (
             <div className="text-sm text-gray-600 bg-gray-50 px-4 py-2 rounded-lg">
               <span className="font-medium">{completionRate}%</span> complete
@@ -46,6 +52,23 @@ const Header = ({ title, description }) => {
                   style={{ width: `${completionRate}%` }}
                 />
               </div>
+            </div>
+          )}
+          
+          {user && (
+            <div className="flex items-center gap-3">
+              <span className="text-sm text-gray-600">
+                Welcome, {user.firstName || user.name || 'User'}
+              </span>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={handleLogout}
+                className="text-gray-600 hover:text-gray-900"
+              >
+                <ApperIcon name="LogOut" size={16} className="mr-1" />
+                Logout
+              </Button>
             </div>
           )}
           

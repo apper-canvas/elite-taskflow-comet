@@ -14,7 +14,7 @@ const Layout = () => {
   useEffect(() => {
     const loadInitialData = async () => {
       try {
-        const [tasksData, categoriesData] = await Promise.all([
+const [tasksData, categoriesData] = await Promise.all([
           tasksService.getAll(),
           categoriesService.getAll()
         ])

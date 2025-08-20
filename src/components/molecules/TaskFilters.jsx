@@ -41,7 +41,7 @@ const TaskFilters = () => {
         >
           <option value="all">All Categories</option>
           {categories.map(category => (
-            <option key={category.Id} value={category.Id}>
+<option key={category.Id} value={category.Id}>
               {category.name}
             </option>
           ))}

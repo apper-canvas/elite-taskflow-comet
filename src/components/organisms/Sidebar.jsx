@@ -43,7 +43,7 @@ const Sidebar = () => {
     dispatch(closeSidebar())
   }
 
-  const navigationItems = [
+const navigationItems = [
     {
       type: "all",
       label: "All Tasks",
@@ -92,7 +92,7 @@ const Sidebar = () => {
       label: "Low Priority",
       icon: "ArrowDown",
       to: "/priority/low",
-      count: getTaskCount({ type: "priority", priority: "low" }),
+count: getTaskCount({ type: "priority", priority: "low" }),
       color: "text-green-600"
     }
   ]
@@ -196,7 +196,7 @@ const Sidebar = () => {
           <nav className="space-y-1">
             {categories.map((category) => (
               <NavLink
-                key={category.Id}
+key={category.Id}
                 to={`/category/${category.Id}`}
                 onClick={handleLinkClick}
                 className={({ isActive }) => cn(
@@ -214,7 +214,7 @@ const Sidebar = () => {
                   {category.name}
                 </div>
                 <span className="bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full text-xs font-semibold">
-                  {getTaskCount({ type: "category", id: category.Id })}
+{getTaskCount({ type: "category", id: category.Id })}
                 </span>
               </NavLink>
             ))}
